@@ -3,21 +3,22 @@ import { createContext } from "react";
 
 
 
-const todoContext  = createContext({
-    todos : [
+export const todoContext  = createContext({
+    todos: [
         {
             id : 1,
             todo : "todo msg",
             checked : false,
         }
     ],
-    addTodo : (id)=>{},
-    deletTodo : (id)=>{},
-    toggleComplete : (id)=>{}    
+    addTodo: (id)=>{},
+    deletTodo: (id)=>{},
+    updateTodo: (id)=>{},
+    toggleComplete: (id)=>{}    
 })
 
-const TodoProvider = themeContext.Provider
+export const TodoProvider = todoContext.Provider
 
-const useTodo = ()=>{
+export const useTodo = ()=>{
     return(useContext(todoContext));
 }
