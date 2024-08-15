@@ -6,9 +6,9 @@ import { createContext } from "react";
 export const todoContext  = createContext({
     todos: [
         {
-            id : 1,
-            todo : "todo msg",
-            checked : false,
+            id: 1,
+            todo: "todo msg",
+            checked: false,
         }
     ],
     addTodo: (id)=>{},
