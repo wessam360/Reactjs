@@ -9,7 +9,7 @@ function App() {
 
   const addTodo = (newTodo)=>{
 
-    setTodos((prevTodos)=>[{...newTodo,id:Date.now()},...prevTodos])
+    setTodos((prevTodos)=>[{...newTodo,id:Date.now(),checked:false},...prevTodos])
   }
 
   const updateTodo = (id,newTodo)=>{
@@ -22,9 +22,13 @@ function App() {
   }
 
   const toggleComplete = (id)=>{
-    setTodos((prevTodos)=>prevTodos.filter((prevTodo)=>
-      (prevTodo.id === id)?{...prevTodo,checked:!prevTodo.checked}:prevTodo ))
-    }
+
+    setTodos(
+      (prevTodos)=>prevTodos.map((prevTodo)=>{
+      return((prevTodo.id === id)?{...prevTodo,checked:!prevTodo.checked}:prevTodos )
+    })
+    )
+  }
     useEffect(() => {
       const todos = JSON.parse(localStorage.getItem("todos"))
   
@@ -34,7 +38,7 @@ function App() {
     }, [])
   
     useEffect(()=>{
-      localStorage.setItem("todo",JSON.stringify(todos))
+      localStorage.setItem("todos",JSON.stringify(todos))
     },[todos])
 
   return (
@@ -69,3 +73,4 @@ function App() {
 
 
 export default App
+

@@ -7,7 +7,7 @@ export function TodoForm() {
     const add = (e)=>{
         e.preventDefault()
         if(!todo) return
-        addTodo({todo,checked:false})
+        addTodo({todo})
         setTodo("")
     }
     return (
