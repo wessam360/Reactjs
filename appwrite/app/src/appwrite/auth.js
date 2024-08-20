@@ -54,4 +54,3 @@ import {APPWRITE_URL , APPWRITE_PROJECT_ID} from '../conf/conf'
 const authService = new AuthService()
 
 export default authService
-3e
