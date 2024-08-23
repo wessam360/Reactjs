@@ -1,7 +1,7 @@
-import { Client, Account, ID } from "appwrite";
 import {APPWRITE_URL , APPWRITE_PROJECT_ID} from '../conf/conf'
+import { Client, Account, ID } from "appwrite";
 
-    class AuthService {
+class AuthService {
         client = new Client();
         account
         constructor(){
