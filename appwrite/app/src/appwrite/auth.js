@@ -1,12 +1,12 @@
-import {APPWRITE_URL , APPWRITE_PROJECT_ID} from '../conf/conf'
+import conf from '../conf/conf'
 import { Client, Account, ID } from "appwrite";
 
 class AuthService {
         client = new Client();
         account
         constructor(){
-            this.client.setEndpoint(APPWRITE_URL)
-            this.client.setProject(APPWRITE_PROJECT_ID)
+            this.client.setProject(conf.APPWRITE_PROJECT_ID)
+            this.client.setEndpoint(conf.APPWRITE_URL)
             this.account = new Account(this.client)
         }
         async createAccount({email,password,name}){

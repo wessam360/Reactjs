@@ -1,5 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import reducers from "./autoslice";
-const store = configureStore({
-reducers
+import reducer from "./autoslice";
+ const store = configureStore({
+reducer
 })
+
+export default store
