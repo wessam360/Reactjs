@@ -1,6 +1,6 @@
 import React, { useId } from 'react'
 
-export default function Select({
+function Select({
     options, // array of options 
     className = "",
     label,
@@ -17,9 +17,15 @@ export default function Select({
       className={` ${className}`}
       >
     {
-        options?.
+        options?.map((option)=>{
+            <option key={option} value={option}>
+                {option}
+            </option>
+        })
     }
       </select>
     </div>
   )
 }
+
+export default React.forwardRef(Select)

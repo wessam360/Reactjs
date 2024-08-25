@@ -109,7 +109,7 @@ class StorageService {
             return this.storage_bucket.getFilePreview(
                 APPWRITE_BUCKET_ID,
                 fileId
-            )
+            ) // it returns us url whch can be used in src to display img
         } catch (error) {
             console.log("appwrite service :: getFilePreview error",error);
             return false
@@ -117,3 +117,5 @@ class StorageService {
     }
 
 }
+const storageService = StorageService()
+export default storageService
