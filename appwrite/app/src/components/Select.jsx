@@ -27,5 +27,5 @@ function Select({
     </div>
   )
 }
-
-export default React.forwardRef(Select)
+const Select = React.forwardRef(Select)
+export default Select

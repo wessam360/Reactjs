@@ -41,7 +41,7 @@ class AuthService {
             }
             
         }
-        async getCurrentUser(){
+        async DeleteCurrentUser(){
             try {
                 return await this.account.deleteSessions()
             } catch (error) {
