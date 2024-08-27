@@ -98,8 +98,9 @@ class StorageService {
     }
     async deleteFile(fileId){
         try {
+            await this.bucket.deleteFile(
             APPWRITE_BUCKET_ID,
-            fileId
+            fileId)
         } catch (error) {
             console.log("appwrite service :: delete file :: error",error);
         }

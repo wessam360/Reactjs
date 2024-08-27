@@ -14,7 +14,40 @@ export default function PostForm({post}) {
     })
     const navigate = useNavigate()
     const userData = useSelector(state=>state.auth.userData)
-    
+    const submit = async(data)=>{
+        if(post){
+            const file = await storageService.uploadFile(data.image[0])
+            if(file){
+            await storageService.deleteFile(post.featuredImage)
+            }
+            const dbPost = await storageService.updatePost(
+                post.$id,
+                {
+                    ...data,
+                    featuredImage : file? file.$id : undefined
+                })
+            if(dbPost){
+                navigate(`post/${post.$id}`)
+            }
+        }
+        else{
+            const file = await storageService.uploadFile(data.image[0])
+            if(file){
+                const fileId = post.$id
+                data.featuredImage = fileId
+                // after completing come here and see why not deleted
+                // await storageService.deleteFile(data.featuredImage)
+
+                const dbPost = await storageService.createPost({
+                    ...data,
+                    userId:userData.$id
+                })
+                if(dbPost){
+                    navigate(`/post/${dbPost.$id}`)
+                }
+            }
+        }
+    }
 
   return (
     <>
