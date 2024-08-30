@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 function PostCard({
     $id,
     title,
-    featuredImage
+    featuredImage,
 }) {
     const [getfeaturedImg_url,SetfeaturedImg_url] = useState("")
     storageService.getFilePreview(featuredImage)

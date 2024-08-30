@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import authService from '../appwrite/auth'
-import { login } from '../store/autoslice'
+import { login } from '../store/authslice'
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { set, useForm } from 'react-hook-form'
